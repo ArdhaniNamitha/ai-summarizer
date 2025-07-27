@@ -1,75 +1,84 @@
----
-title: AI Text Summarizer
-colorFrom: indigo
-colorTo: blue
-sdk: streamlit
-sdk_version: "1.32.2"
-app_file: app.py
-pinned: false
----
-
 # AI Text Summarizer
 
-This repository contains a web-based application that generates clear, structured, and academically appropriate summaries from lengthy articles, documents, or pasted text. The application is built using Python, Streamlit, and Hugging Face Transformers and is optimized for both performance and usability. It is particularly useful for students, educators, and researchers seeking concise yet informative content from large textual inputs.
+This is a web-based application that intelligently summarizes large bodies of text into clear, concise formats. Built with Streamlit and powered by Hugging Face Transformers, it supports multiple input formats and summary styles tailored for educational and research purposes.
 
-## Key Features
+## Features
 
-- **Multiple Summary Modes:**
-  - **Paragraph Mode:** Coherent, compact summaries written in paragraph form.
-  - **Smart Notes Mode:** Bullet-point notes with auto-generated, content-aware section headings.
-  - **Detailed Summary Mode:** Well-organized summaries divided into meaningful sections, ideal for academic and study purposes.
+- **Multiple Summary Styles:**
+  - Paragraph Summary – Short, cohesive summary in paragraph form.
+  - Smart Notes – Structured bullet-point notes with auto-generated headings.
+  - Structured Headings – Detailed academic-style summaries with section titles.
 
-- **File Upload Support:**
-  - Accepts `.pdf`, `.docx`, and `.txt` file types.
-  - Alternatively, users can paste text directly into the interface.
+- **Flexible Input Options:**
+  - Upload files in `.pdf`, `.docx`, or `.txt` format.
+  - Paste custom text directly into the app.
 
-- **Output Enhancements:**
-  - Displays original and summarized word count.
-  - Calculates readability score using Flesch Reading Ease.
-  - Extracts keywords using count-based vectorization.
-  - Allows downloading summaries in `.txt` format.
+- **Extra Insights:**
+  - Word count (original vs. summary)
+  - Readability score (Flesch Reading Ease)
+  - Keyword extraction using TF-IDF
 
-- **Performance Improvements:**
-  - Uses greedy decoding for significantly faster response times.
-  - Limits processing to the most relevant chunks of text for efficiency.
-  - Implements TF-IDF to dynamically generate section headings for contextual clarity.
+- **Custom Themes:**
+  - Toggle between light and dark modes
+  - Modern UI with responsive design
 
-## Technologies Used
+- **Fast Processing:**
+  - Uses greedy decoding for faster inference
+  - Limits token processing intelligently for performance
 
-- **Frontend:** Streamlit
-- **NLP Model:** Hugging Face Transformers (`sshleifer/distilbart-cnn-12-6`)
-- **Backend:** PyTorch
-- **Text Analytics:** scikit-learn (TF-IDF), textstat
-- **File Processing:** pdfplumber, python-docx
+## Model & NLP Stack
 
-## Installation and Local Usage
-
-To run the application locally:
-
-```bash
-git clone https://github.com/ArdhaniNamitha/ai-summarizer
-cd ai-summarizer
-pip install -r requirements.txt
-streamlit run app.py
-```
+- **Transformer Model:** `sshleifer/distilbart-cnn-12-6` (via Hugging Face)
+- **Libraries Used:**
+  - `transformers`, `torch`, `scikit-learn`, `textstat`, `pdfplumber`, `python-docx`, `spacy`, `nltk`
 
 ## File Structure
 
 ```
-├── app.py               # Streamlit frontend and layout
-├── summarizer.py        # Summarization logic using transformers
-├── utils.py             # Text extraction, readability, keyword detection
-├── requirements.txt     # List of Python dependencies
+├── app.py               # Main Streamlit app
+├── summarizer.py        # Text chunking and summarization logic
+├── utils.py             # File reading, keyword extraction, and formatting
+├── requirements.txt     # All dependencies
 └── README.md            # Project documentation
 ```
 
-## Model Details
+## Installation & Running Locally
 
-- **Model Used:** [sshleifer/distilbart-cnn-12-6](https://huggingface.co/sshleifer/distilbart-cnn-12-6)
-- **Framework:** Hugging Face Transformers
-- **Decoding Strategy:** Greedy decoding for optimized performance
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ArdhaniNamitha/ai-summarizer
+   cd ai-summarizer
+   ```
+
+2. Install the required libraries:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the app:
+   ```bash
+   streamlit run app.py
+   ```
+
+## Requirements
+
+```txt
+transformers>=4.25.1
+torch>=1.13.1
+streamlit>=1.18.0
+pdfplumber>=0.7.6
+python-docx>=0.8.11
+PyMuPDF>=1.21.1
+scikit-learn>=1.2.0
+textstat>=0.7.3
+spacy>=3.4.0
+nltk>=3.7
+```
 
 ## Author
 
-Developed and maintained by [Ardhani Namitha](https://github.com/ArdhaniNamitha).
+Developed by [Ardhani Namitha](https://github.com/ArdhaniNamitha)
 
+---
+
+This application is built for learners, educators, and professionals who need meaningful, quick summaries without sacrificing context.
