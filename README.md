@@ -1,3 +1,13 @@
+---
+title: AI Text Summarizer
+colorFrom: indigo
+colorTo: blue
+sdk: streamlit
+sdk_version: "1.32.2"
+app_file: app.py
+pinned: false
+---
+
 # AI Text Summarizer
 
 This repository contains a web-based application that generates clear, structured, and academically appropriate summaries from lengthy articles, documents, or pasted text. The application is built using Python, Streamlit, and Hugging Face Transformers and is optimized for both performance and usability. It is particularly useful for students, educators, and researchers seeking concise yet informative content from large textual inputs.
@@ -37,8 +47,8 @@ This repository contains a web-based application that generates clear, structure
 To run the application locally:
 
 ```bash
-git clone https://github.com/ArdhaniNamitha/ai-text-summarizer
-cd ai-text-summarizer
+git clone https://github.com/ArdhaniNamitha/ai-summarizer
+cd ai-summarizer
 pip install -r requirements.txt
 streamlit run app.py
 ```
