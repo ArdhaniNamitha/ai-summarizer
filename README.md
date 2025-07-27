@@ -1,6 +1,5 @@
 ---
 title: AI Text Summarizer
-emoji: ""
 colorFrom: indigo
 colorTo: blue
 sdk: streamlit
