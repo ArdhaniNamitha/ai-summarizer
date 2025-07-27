@@ -1,6 +1,7 @@
 import streamlit as st
 from summarizer import summarize_text
-from utils import get_readability, get_word_count, extract_keywords, format_as_study_notes
+from utils import extract_text_from_file, get_readability, get_word_count, extract_keywords, format_as_study_notes
+import tempfile
 
 # Page config
 st.set_page_config(page_title="AI Text Summarizer", layout="wide")
@@ -76,15 +77,22 @@ st.markdown(f"""
 st.markdown(f'<div class="title">AI Text Summarizer</div>', unsafe_allow_html=True)
 
 # Input section
-text_input = st.text_area("Paste your content here", height=300)
+uploaded_file = st.file_uploader("Upload a file (PDF, DOCX, TXT)", type=["pdf", "docx", "txt"])
+text_input = st.text_area("Or paste your content here", height=250)
 format_option = st.selectbox("Select summary format", ["Structured Headings", "Smart Notes", "Paragraph Summary"])
 
 # Generate summary
 if st.button("Generate Summary"):
-    input_text = text_input.strip()
+    if uploaded_file:
+        ext = f".{uploaded_file.name.split('.')[-1]}"
+        with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as tmp:
+            tmp.write(uploaded_file.read())
+            input_text = extract_text_from_file(tmp.name, ext)
+    else:
+        input_text = text_input
 
-    if not input_text:
-        st.error("No input provided. Please paste your content.")
+    if not input_text.strip():
+        st.error("No input provided. Please upload or paste your content.")
     else:
         summary_type = (
             "detailed" if format_option == "Structured Headings"

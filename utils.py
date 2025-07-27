@@ -1,13 +1,30 @@
 import textstat
+from docx import Document
+import pdfplumber
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import numpy as np
 import re
+
 
 def get_readability(text):
     return textstat.flesch_reading_ease(text)
 
 def get_word_count(text):
     return len(text.split())
+
+def extract_text_from_file(file_path, ext):
+    text = ""
+    if ext == ".pdf":
+        with pdfplumber.open(file_path) as pdf:
+            for page in pdf.pages:
+                text += page.extract_text() or ""
+    elif ext == ".docx":
+        doc = Document(file_path)
+        text = "\n".join([p.text for p in doc.paragraphs])
+    elif ext == ".txt":
+        with open(file_path, "r", encoding="utf-8") as f:
+            text = f.read()
+    return text
 
 def extract_keywords(text, top_n=5):
     vec = CountVectorizer(stop_words="english", max_features=1000)
@@ -51,6 +68,7 @@ def format_as_study_notes(summary_text, original_text=None):
             chunks.append(current_chunk)
             current_chunk = []
 
+    # Generate all dynamic headings in one pass (faster)
     headings = generate_dynamic_headings_for_chunks(chunks)
 
     output = f"## {title}\n"

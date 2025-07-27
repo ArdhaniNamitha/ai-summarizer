@@ -1,67 +1,66 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
+st.markdown(f"""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* Base Styles */
-html, body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #3a3a52);
-    color: #ffffff;
-}
+    html, body {{
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1e1e2f, #3a3a52);
+        color: {text_color};
+    }}
 
-/* Title */
-.title {
-    text-align: center;
-    font-size: 42px;
-    font-weight: 700;
-    color: #90caf9;
-    margin-top: 20px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-}
+    section.main > div {{
+        background-color: transparent;
+        padding: 2rem;
+    }}
 
-/* Input Sections */
-.stTextArea, .stFileUploader, .stSelectbox {
-    background-color: #ffffff10 !important;
-    border-radius: 10px;
-    padding: 12px;
-    color: #ffffff;
-}
+    .title {{
+        text-align: center;
+        font-size: 50px;
+        font-weight: 700;
+        color: {header_color};
+        margin-top: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }}
 
-/* Summary Box */
-.summary-box {
-    background-color: #2e2e3e;
-    padding: 24px;
-    border-radius: 14px;
-    margin-top: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    .summary-box {{
+        background-color: {card_color};
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 25px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }}
 
-/* Buttons */
-.stButton>button {
-    background-color: #3949ab;
-    color: white;
-    padding: 10px 26px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-.stButton>button:hover {
-    background-color: white;
-    color: #3949ab;
-    border: 2px solid #3949ab;
-}
+    .stTextArea, .stFileUploader, .stSelectbox {{
+        background-color: #ffffff10 !important;
+        border-radius: 10px;
+        padding: 10px;
+        color: {text_color};
+    }}
 
-/* Download Button */
-.stDownloadButton>button {
-    background-color: #2e7d32;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 10px;
-}
+    .stButton>button {{
+        background-color: {primary};
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        font-size: 16px;
+        box-shadow: 0 0 15px {primary};
+        transition: 0.3s ease;
+    }}
 
-/* Container Adjustments */
-section.main > div {
-    background-color: transparent;
-    padding: 2rem;
-}
+    .stButton>button:hover {{
+        background-color: #333;
+        color: {primary};
+        box-shadow: 0 0 20px {primary};
+    }}
+
+    .stDownloadButton>button {{
+        background-color: #2e7d32;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: bold;
+        margin-top: 10px;
+    }}
+    </style>
+""", unsafe_allow_html=True)

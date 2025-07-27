@@ -1,38 +1,65 @@
 # AI Text Summarizer
 
-This project is a web-based AI text summarizer built using Python and Streamlit. It uses Hugging Face's transformer models to generate well-structured and informative summaries for long-form text. The application is designed with academic and educational use in mind, delivering structured or note-style outputs suitable for study, research, or analysis.
+This repository contains a web-based application that generates clear, structured, and academically appropriate summaries from lengthy articles, documents, or pasted text. The application is built using Python, Streamlit, and Hugging Face Transformers and is optimized for both performance and usability. It is particularly useful for students, educators, and researchers seeking concise yet informative content from large textual inputs.
 
-## Features
+## Key Features
 
-- **Input via Text Area**  
-  Users can paste any article or large block of content directly into the interface. No file upload is required, making the interface lightweight and simple.
+- **Multiple Summary Modes:**
+  - **Paragraph Mode:** Coherent, compact summaries written in paragraph form.
+  - **Smart Notes Mode:** Bullet-point notes with auto-generated, content-aware section headings.
+  - **Detailed Summary Mode:** Well-organized summaries divided into meaningful sections, ideal for academic and study purposes.
 
-- **Multiple Summary Styles**  
-  - **Structured Headings**: A multi-section summary organized with relevant headings.
-  - **Smart Notes**: Bullet-point notes grouped under automatically generated topics.
-  - **Paragraph Summary**: A coherent and readable paragraph summary.
+- **File Upload Support:**
+  - Accepts `.pdf`, `.docx`, and `.txt` file types.
+  - Alternatively, users can paste text directly into the interface.
 
-- **Performance-Oriented Summarization**  
-  The model intelligently segments large input into manageable chunks before summarizing. This helps optimize speed and ensures completeness.
+- **Output Enhancements:**
+  - Displays original and summarized word count.
+  - Calculates readability score using Flesch Reading Ease.
+  - Extracts keywords using count-based vectorization.
+  - Allows downloading summaries in `.txt` format.
 
-- **Output Analytics**  
-  - Original and summarized word counts  
-  - Readability score using Flesch Reading Ease  
-  - Top keywords extracted from the input text  
-
-- **Downloadable Output**  
-  Summaries can be downloaded as plain text files for offline use.
+- **Performance Improvements:**
+  - Uses greedy decoding for significantly faster response times.
+  - Limits processing to the most relevant chunks of text for efficiency.
+  - Implements TF-IDF to dynamically generate section headings for contextual clarity.
 
 ## Technologies Used
 
-- **Frontend**: Streamlit  
-- **Model**: Hugging Face Transformers — `sshleifer/distilbart-cnn-12-6`  
-- **Backend Framework**: PyTorch  
-- **NLP Utilities**: scikit-learn, textstat  
+- **Frontend:** Streamlit
+- **NLP Model:** Hugging Face Transformers (`sshleifer/distilbart-cnn-12-6`)
+- **Backend:** PyTorch
+- **Text Analytics:** scikit-learn (TF-IDF), textstat
+- **File Processing:** pdfplumber, python-docx
 
-## Setup and Installation
+## Installation and Local Usage
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ArdhaniNamitha/ai-text-summarizer
-   cd ai-text-summarizer
+To run the application locally:
+
+```bash
+git clone https://github.com/ArdhaniNamitha/ai-text-summarizer
+cd ai-text-summarizer
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## File Structure
+
+```
+├── app.py               # Streamlit frontend and layout
+├── summarizer.py        # Summarization logic using transformers
+├── utils.py             # Text extraction, readability, keyword detection
+├── requirements.txt     # List of Python dependencies
+└── README.md            # Project documentation
+```
+
+## Model Details
+
+- **Model Used:** [sshleifer/distilbart-cnn-12-6](https://huggingface.co/sshleifer/distilbart-cnn-12-6)
+- **Framework:** Hugging Face Transformers
+- **Decoding Strategy:** Greedy decoding for optimized performance
+
+## Author
+
+Developed and maintained by [Ardhani Namitha](https://github.com/ArdhaniNamitha).
+
