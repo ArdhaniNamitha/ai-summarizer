@@ -1,44 +1,72 @@
 ---
-title: AI Text Summarizer
-colorFrom: indigo
-colorTo: blue
-sdk: streamlit
-sdk_version: "1.32.2"
-app_file: app.py
-pinned: false
+title: AI Text Summarizer  
+colorFrom: indigo  
+colorTo: blue  
+sdk: streamlit  
+sdk_version: "1.32.2"  
+app_file: app.py  
+pinned: false  
 ---
 
 # AI Text Summarizer
 
-This is a web-based application that generates clear, structured, and academically useful summaries from large documents or text inputs. Built using Python, Streamlit, and Hugging Face Transformers, this app is designed for students, researchers, and educators looking for faster content digestion.
+**Live Demo:** [https://namitha-ai-text-summarizer.hf.space](https://namitha-ai-text-summarizer.hf.space)
 
-## Features
+AI Text Summarizer is a Streamlit-based web application that generates clean, structured summaries from long academic or general-purpose texts using advanced NLP models. The tool supports multiple input formats and provides flexible output styles, making it ideal for students, educators, researchers, and professionals.
 
-- Multiple Summary Modes  
-  - Paragraph Summary: Clear, concise summaries in paragraph format.  
-  - Smart Notes: Bullet-style notes with generated section headings for easy revision.  
-  - Structured Headings: Summaries broken into academic-style sections for in-depth understanding.  
-- Flexible Input  
-  - Supports .pdf, .docx, and .txt uploads.  
-  - Option to paste text directly into the interface.  
-- Smart Output  
-  - Word count (original vs summary)  
-  - Readability score using Flesch Reading Ease  
-  - Keyword extraction with CountVectorizer  
-  - Option to download the summary  
-- Performance Optimizations  
-  - Greedy decoding for fast summarization  
-  - Summarization limited to top 4 chunks for efficiency  
-  - Uses TF-IDF for smart headings in notes format
+---
 
-## Tech Stack
+## Key Features
 
-- Frontend: Streamlit  
-- Model: sshleifer/distilbart-cnn-12-6 (Hugging Face Transformers)  
-- NLP/Backend: PyTorch, scikit-learn, textstat  
-- File Handling: pdfplumber, python-docx
+### Input Options
+- Upload files: `.pdf`, `.docx`, `.txt`
+- Direct text input (copy-paste)
 
-## How to Run Locally
+### Summary Formats
+- **Paragraph Summary**: Compact, continuous text
+- **Smart Notes**: Bullet-pointed highlights with context-aware grouping
+- **Structured Headings**: Hierarchical format ideal for academic use
+
+### Additional Functionality
+- Word count comparison (original vs summarized)
+- Readability score (Flesch Reading Ease)
+- Keyword extraction using `scikit-learn`'s `CountVectorizer`
+- Export summaries as downloadable `.txt` files
+- Theme toggle (light/dark mode)
+- Responsive and clean interface using Streamlit markdown components
+
+---
+
+## Model and Libraries
+
+- **Summarization Model**: `sshleifer/distilbart-cnn-12-6` from Hugging Face
+- **Decoding Strategy**: Greedy decoding (efficient and deterministic)
+- **NLP Stack**: 
+  - `transformers` (Hugging Face)
+  - `torch`
+  - `scikit-learn`
+  - `nltk`, `spacy`
+  - `textstat`
+- **Text Extraction**: `pdfplumber`, `python-docx`, `PyMuPDF`
+
+---
+
+## Project Structure
+
+```
+ai-summarizer/
+├── app.py               # Streamlit frontend
+├── summarizer.py        # Summarization and NLP logic
+├── utils.py             # File parsing, keyword extraction, readability metrics
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
+```
+
+---
+
+## Installation
+
+To run the project locally:
 
 ```bash
 git clone https://github.com/ArdhaniNamitha/ai-summarizer
@@ -47,20 +75,32 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Project Structure
+---
 
-├── app.py               # Streamlit frontend and layout  
-├── summarizer.py        # Summarization logic using transformers  
-├── utils.py             # Text extraction, readability, keyword detection  
-├── requirements.txt     # Python dependencies  
-└── README.md            # Project documentation
+## Dependencies
 
-## Model Info
+```
+streamlit>=1.18.0
+transformers>=4.25.1
+torch>=1.13.1
+pdfplumber>=0.7.6
+python-docx>=0.8.11
+PyMuPDF>=1.21.1
+scikit-learn>=1.2.0
+textstat>=0.7.3
+spacy>=3.4.0
+nltk>=3.7
+```
 
-- Model: sshleifer/distilbart-cnn-12-6  
-- Strategy: Greedy decoding  
-- Use Case: Long-document summarization
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
 
 ## Author
 
-Developed by Ardhani Namitha
+**Ardhani Namitha**  
+GitHub: [github.com/ArdhaniNamitha](https://github.com/ArdhaniNamitha)
