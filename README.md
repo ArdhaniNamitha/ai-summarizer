@@ -19,7 +19,7 @@ AI Text Summarizer is a Streamlit-based web application that generates clean, st
 This app is deployed on Hugging Face Spaces using Streamlit for accessible, browser-based interaction.
 
 Try it live — no setup needed:  
-https://namitha-ai-text-summarizer.hf.space
+ [https://namitha-ai-text-summarizer.hf.space](https://huggingface.co/spaces/cs23-namitha/ai-summarizer)
 
 ## Key Features
 
@@ -77,7 +77,7 @@ streamlit run app.py
 
 No installation required.  
 Access the live summarizer app here:  
-https://namitha-ai-text-summarizer.hf.space
+ [https://namitha-ai-text-summarizer.hf.space](https://huggingface.co/spaces/cs23-namitha/ai-summarizer)
 
 ## Dependencies
 
