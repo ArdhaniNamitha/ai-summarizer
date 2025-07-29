@@ -32,6 +32,11 @@ Summary Formats:
 - Smart Notes: Bullet-pointed highlights with context-aware grouping
 - Structured Headings: Hierarchical format ideal for academic use
 
+## Usage Note
+Please note:
+- The summarizer does not generate line-by-line summaries. It produces a coherent overview based on the entire text.
+- For long documents, processing may take 2–3 minutes depending on input size and server load.
+
 Additional Functionality:
 - Word count comparison (original vs summarized)
 - Readability score (Flesch Reading Ease)
