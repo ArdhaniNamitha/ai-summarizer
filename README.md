@@ -10,7 +10,7 @@ pinned: false
 
 # AI Text Summarizer
 
-Live Demo: https://namitha-ai-text-summarizer.hf.space(https://huggingface.co/spaces/cs23-namitha/ai-summarizer)
+**Live Demo:** [https://namitha-ai-text-summarizer.hf.space](https://huggingface.co/spaces/cs23-namitha/ai-summarizer)
 
 AI Text Summarizer is a Streamlit-based web application that generates clean, structured summaries from long academic or general-purpose texts using advanced NLP models. The tool supports multiple input formats and provides flexible output styles, making it ideal for students, educators, researchers, and professionals.
 
@@ -99,7 +99,7 @@ This project is licensed under the MIT License.
 ## Author
 
 Ardhani Namitha  
-GitHub: https://github.com/ArdhaniNamitha
+GitHub: [github.com/ArdhaniNamitha](https://github.com/ArdhaniNamitha)
 
 ---
 title: AI Text Summarizer  
